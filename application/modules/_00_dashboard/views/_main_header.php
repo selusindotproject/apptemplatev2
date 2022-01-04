@@ -33,7 +33,7 @@
                     <img src="<?php echo base_url() ?>assets/adminlte/dist/img/<?php echo $this->ion_auth->logged_in() ? 'user1-128x128.jpg' : 'user9-160x160.jpg' ?>" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block"><?php echo $this->ion_auth->logged_in() ? $this->ion_auth->user()->row()->first_name : 'no user logged-in' ?></a>
+                    <a href="#" class="d-block"><?php echo $this->ion_auth->logged_in() ? $this->ion_auth->user()->row()->first_name : '' ?></a>
                 </div>
             </div>
 
@@ -67,14 +67,24 @@
                         }
                         ?>
                     ">
-                        <a href="#" class="nav-link">
+                        <a href="#" class="nav-link
+                            <?php
+                            switch ($this->uri->segment(1)) {
+                                case 'auth':
+                                    echo 'active';
+                                    break;
+                                default:
+                                    echo '';
+                            }
+                            ?>
+                        ">
                             <!-- <i class="nav-icon fas fa-tachometer-alt"></i> -->
                             <i class="fas fa-clone nav-icon"></i>
                             <p>MASTER <i class="right fas fa-angle-left"></i></p>
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="<?php echo site_url('auth') ?>" class="nav-link <?php echo $this->uri->segment(1) == 'users' ? 'auth' : '' ?>">
+                                <a href="<?php echo site_url('auth') ?>" class="nav-link <?php echo $this->uri->segment(1) == 'auth' ? 'active' : '' ?>">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>USERS</p>
                                 </a>

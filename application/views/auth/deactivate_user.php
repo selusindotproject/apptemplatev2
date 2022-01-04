@@ -1,18 +1,36 @@
-<h1><?php echo lang('deactivate_heading');?></h1>
-<p><?php echo sprintf(lang('deactivate_subheading'), $user->{$identity}); ?></p>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-outline card-info">
 
-<?php echo form_open("auth/deactivate/".$user->id);?>
+            <div class="card-header">
+                <h3 class="card-title"><?php echo lang('deactivate_heading');?></h3>
+            </div>
+            <!-- /.card-header -->
 
-  <p>
-  	<?php echo lang('deactivate_confirm_y_label', 'confirm');?>
-    <input type="radio" name="confirm" value="yes" checked="checked" />
-    <?php echo lang('deactivate_confirm_n_label', 'confirm');?>
-    <input type="radio" name="confirm" value="no" />
-  </p>
+            <?php echo form_open("auth/deactivate/".$user->id);?>
 
-  <?php echo form_hidden($csrf); ?>
-  <?php echo form_hidden(['id' => $user->id]); ?>
+            <div class="card-body">
 
-  <p><?php echo form_submit('submit', lang('deactivate_submit_btn'));?></p>
+                <p>
+                	<?php echo lang('deactivate_confirm_y_label', 'confirm');?>
+                    <input type="radio" name="confirm" value="yes" checked="checked" />
+                    <?php echo lang('deactivate_confirm_n_label', 'confirm');?>
+                    <input type="radio" name="confirm" value="no" />
+                </p>
 
-<?php echo form_close();?>
+                <?php echo form_hidden($csrf); ?>
+                <?php echo form_hidden(['id' => $user->id]); ?>
+
+            </div>
+
+            <div class="card-footer">
+                <?php echo form_submit('submit', lang('deactivate_submit_btn'), 'class="btn btn-primary"');?>
+            </div>
+
+            <?php echo form_close();?>
+
+        </div>
+    </div>
+    <!-- /.col-->
+</div>
+<!-- ./row -->

@@ -1,57 +1,102 @@
-<h1><?php echo lang('create_user_heading');?></h1>
-<p><?php echo lang('create_user_subheading');?></p>
+<div class="row">
 
-<div id="infoMessage"><?php echo $message;?></div>
+    <div class="col-md-12">
 
-<?php echo form_open("auth/create_user");?>
+        <div class="card card-outline card-info">
 
-      <p>
-            <?php echo lang('create_user_fname_label', 'first_name');?> <br />
-            <?php echo form_input($first_name);?>
-      </p>
+            <div class="card-header">
+                <h3 class="card-title">
+                    <?php echo lang('create_user_heading');?>
+                </h3>
+            </div>
+            <!-- /.card-header -->
 
-      <p>
-            <?php echo lang('create_user_lname_label', 'last_name');?> <br />
-            <?php echo form_input($last_name);?>
-      </p>
-      
-      <?php
-      if($identity_column!=='email') {
-          echo '<p>';
-          echo lang('create_user_identity_label', 'identity');
-          echo '<br />';
-          echo form_error('identity');
-          echo form_input($identity);
-          echo '</p>';
-      }
-      ?>
+            <?php echo form_open("auth/create_user", 'class="form-horizontal"');?>
 
-      <p>
-            <?php echo lang('create_user_company_label', 'company');?> <br />
-            <?php echo form_input($company);?>
-      </p>
+            <div class="card-body">
 
-      <p>
-            <?php echo lang('create_user_email_label', 'email');?> <br />
-            <?php echo form_input($email);?>
-      </p>
+                <?php if ($message != '') { ?>
+                	<script src="<?php echo base_url() ?>assets/adminlte/plugins/jquery/jquery.min.js"></script>
+                	<script src="<?php echo base_url() ?>assets/adminlte/plugins/toastr/toastr.min.js"></script>
+                	<script type="text/javascript">toastr.info("<?php echo $message ?>");</script>
+                <?php } ?>
 
-      <p>
-            <?php echo lang('create_user_phone_label', 'phone');?> <br />
-            <?php echo form_input($phone);?>
-      </p>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label"><?php echo lang('create_user_fname_label', 'first_name');?></label>
+                    <div class="col-sm-10">
+                        <?php echo form_input($first_name, '', 'class="form-control"');?>
+                    </div>
+                </div>
 
-      <p>
-            <?php echo lang('create_user_password_label', 'password');?> <br />
-            <?php echo form_input($password);?>
-      </p>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label"><?php echo lang('create_user_lname_label', 'last_name');?></label>
+                    <div class="col-sm-10">
+                        <?php echo form_input($last_name, '', 'class="form-control"');?>
+                    </div>
+                </div>
 
-      <p>
-            <?php echo lang('create_user_password_confirm_label', 'password_confirm');?> <br />
-            <?php echo form_input($password_confirm);?>
-      </p>
+                <?php
+                if($identity_column!=='email') {
+                ?>
+                  <div class="form-group row">
+                    <label class="col-sm-2 col-form-label"><?php echo lang('create_user_identity_label', 'identity');?></label>
+                    <div class="col-sm-10">
+                      <?php echo form_error('identity'); ?>
+                      <?php echo form_input($identity, '', 'class="form-control"');?>
+                    </div>
+                  </div>
+                <?php
+                }
+                ?>
 
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label"><?php echo lang('create_user_company_label', 'company');?></label>
+                    <div class="col-sm-10">
+                        <?php echo form_input($company, '', 'class="form-control"');?>
+                    </div>
+                </div>
 
-      <p><?php echo form_submit('submit', lang('create_user_submit_btn'));?></p>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label"><?php echo lang('create_user_email_label', 'email');?></label>
+                    <div class="col-sm-10">
+                        <?php echo form_input($email, '', 'class="form-control"');?>
+                    </div>
+                </div>
 
-<?php echo form_close();?>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label"><?php echo lang('create_user_phone_label', 'phone');?></label>
+                    <div class="col-sm-10">
+                        <?php echo form_input($phone, '', 'class="form-control"');?>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label"><?php echo lang('create_user_password_label', 'password');?></label>
+                    <div class="col-sm-10">
+                        <?php echo form_input($password, '', 'class="form-control"');?>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label"><?php echo lang('create_user_password_confirm_label', 'password_confirm');?></label>
+                    <div class="col-sm-10">
+                        <?php echo form_input($password_confirm, '', 'class="form-control"');?>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="card-footer">
+                <?php echo form_submit('submit', lang('create_user_submit_btn'), 'class="btn btn-primary"');?>
+                <!-- Visit <a href="https://github.com/summernote/summernote/">Summernote</a> documentation for more examples and information about the plugin. -->
+            </div>
+
+            <?php echo form_close();?>
+
+        </div>
+
+    </div>
+    <!-- /.col-->
+
+</div>
+<!-- ./row -->

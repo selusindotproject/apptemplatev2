@@ -3,7 +3,7 @@
         <div class="card card-outline card-info">
 
             <div class="card-header">
-                <h3 class="card-title"><?php echo lang('create_group_heading');?></h3>
+                <h3 class="card-title">[form title]</h3>
             </div>
             <!-- /.card-header -->
 
@@ -19,26 +19,16 @@
 
                 <div class="form-group row">
                     <label class="col-sm-2 col-form-label">
-                        <?php echo lang('create_group_name_label', 'group_name');?>
+                        <?php echo lang('create_user_fname_label', 'first_name');?>
                     </label>
                     <div class="col-sm-10">
-                        <?php echo form_input($group_name, '', 'class="form-control"');?>
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label">
-                        <?php echo lang('create_group_desc_label', 'description');?>
-                    </label>
-                    <div class="col-sm-10">
-                        <?php echo form_input($description, '', 'class="form-control"');?>
+                        <?php echo form_input($first_name, '', 'class="form-control"');?>
                     </div>
                 </div>
 
             </div>
 
             <div class="card-footer">
-                <!-- Visit <a href="https://github.com/summernote/summernote/">Summernote</a> documentation for more examples and information about the plugin. -->
                 <?php echo form_submit('submit', lang('create_group_submit_btn'), 'class="btn btn-primary"');?>
             </div>
 

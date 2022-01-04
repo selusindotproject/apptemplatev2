@@ -1,55 +1,113 @@
-<h1><?php echo lang('edit_user_heading');?></h1>
-<p><?php echo lang('edit_user_subheading');?></p>
+<div class="row">
 
-<div id="infoMessage"><?php echo $message;?></div>
+    <div class="col-md-12">
 
-<?php echo form_open(uri_string());?>
+        <div class="card card-outline card-info">
 
-      <p>
-            <?php echo lang('edit_user_fname_label', 'first_name');?> <br />
-            <?php echo form_input($first_name);?>
-      </p>
+            <div class="card-header">
+                <h3 class="card-title">
+                    <?php echo lang('edit_user_heading');?>
+                </h3>
+            </div>
+            <!-- /.card-header -->
 
-      <p>
-            <?php echo lang('edit_user_lname_label', 'last_name');?> <br />
-            <?php echo form_input($last_name);?>
-      </p>
+            <?php echo form_open(uri_string(), 'class="form-horzontal"');?>
 
-      <p>
-            <?php echo lang('edit_user_company_label', 'company');?> <br />
-            <?php echo form_input($company);?>
-      </p>
+            <div class="card-body">
 
-      <p>
-            <?php echo lang('edit_user_phone_label', 'phone');?> <br />
-            <?php echo form_input($phone);?>
-      </p>
+                <!-- <div id="infoMessage"><?php echo $message;?></div> -->
+                <?php if ($message != '') { ?>
+                	<script src="<?php echo base_url() ?>assets/adminlte/plugins/jquery/jquery.min.js"></script>
+                	<script src="<?php echo base_url() ?>assets/adminlte/plugins/toastr/toastr.min.js"></script>
+                	<script type="text/javascript">toastr.info("<?php echo $message ?>");</script>
+                <?php } ?>
 
-      <p>
-            <?php echo lang('edit_user_password_label', 'password');?> <br />
-            <?php echo form_input($password);?>
-      </p>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">
+                        <?php echo lang('edit_user_fname_label', 'first_name');?>
+                    </label>
+                    <div class="col-sm-10">
+                        <?php echo form_input($first_name, '', 'class="form-control"');?>
+                    </div>
+                </div>
 
-      <p>
-            <?php echo lang('edit_user_password_confirm_label', 'password_confirm');?><br />
-            <?php echo form_input($password_confirm);?>
-      </p>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">
+                        <?php echo lang('edit_user_lname_label', 'last_name');?>
+                    </label>
+                    <div class="col-sm-10">
+                        <?php echo form_input($last_name, '', 'class="form-control"');?>
+                    </div>
+                </div>
 
-      <?php if ($this->ion_auth->is_admin()): ?>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">
+                        <?php echo lang('edit_user_company_label', 'company');?>
+                    </label>
+                    <div class="col-sm-10">
+                        <?php echo form_input($company, '', 'class="form-control"');?>
+                    </div>
+                </div>
 
-          <h3><?php echo lang('edit_user_groups_heading');?></h3>
-          <?php foreach ($groups as $group):?>
-              <label class="checkbox">
-              <input type="checkbox" name="groups[]" value="<?php echo $group['id'];?>" <?php echo (in_array($group, $currentGroups)) ? 'checked="checked"' : null; ?>>
-              <?php echo htmlspecialchars($group['name'],ENT_QUOTES,'UTF-8');?>
-              </label>
-          <?php endforeach?>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">
+                        <?php echo lang('edit_user_phone_label', 'phone');?>
+                    </label>
+                    <div class="col-sm-10">
+                        <?php echo form_input($phone, '', 'class="form-control"');?>
+                    </div>
+                </div>
 
-      <?php endif ?>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">
+                        <?php echo lang('edit_user_password_label', 'password');?>
+                    </label>
+                    <div class="col-sm-10">
+                        <?php echo form_input($password, '', 'class="form-control"');?>
+                    </div>
+                </div>
 
-      <?php echo form_hidden('id', $user->id);?>
-      <?php echo form_hidden($csrf); ?>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">
+                        <?php echo lang('edit_user_password_confirm_label', 'password_confirm');?>
+                    </label>
+                    <div class="col-sm-10">
+                        <?php echo form_input($password_confirm, '', 'class="form-control"');?>
+                    </div>
+                </div>
 
-      <p><?php echo form_submit('submit', lang('edit_user_submit_btn'));?></p>
+                <?php if ($this->ion_auth->is_admin()): ?>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">
+                        <?php echo lang('edit_user_groups_heading');?>
+                    </label>
+                    <div class="col-sm-10">
+                        <?php foreach ($groups as $group):?>
+                        <label class="checkbox">
+                        <input type="checkbox" name="groups[]" value="<?php echo $group['id'];?>" <?php echo (in_array($group, $currentGroups)) ? 'checked="checked"' : null; ?>>
+                        <?php echo htmlspecialchars($group['name'],ENT_QUOTES,'UTF-8');?>
+                        </label><br>
+                        <?php endforeach?>
+                    </div>
+                </div>
+                <?php endif ?>
 
-<?php echo form_close();?>
+                <?php echo form_hidden('id', $user->id);?>
+                <?php echo form_hidden($csrf); ?>
+
+            </div>
+
+            <div class="card-footer">
+                <?php echo form_submit('submit', lang('edit_user_submit_btn'), 'class="btn btn-primary"');?>
+                <!-- Visit <a href="https://github.com/summernote/summernote/">Summernote</a> documentation for more examples and information about the plugin. -->
+            </div>
+
+            <?php echo form_close();?>
+
+        </div>
+
+    </div>
+    <!-- /.col-->
+
+</div>
+<!-- ./row -->

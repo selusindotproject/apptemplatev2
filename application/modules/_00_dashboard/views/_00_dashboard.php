@@ -17,6 +17,8 @@
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/adminlte/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- JQVMap -->
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/adminlte/plugins/jqvmap/jqvmap.min.css">
+  <!-- Toastr -->
+  <link rel="stylesheet" href="<?php echo base_url() ?>assets/adminlte/plugins/toastr/toastr.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url() ?>assets/adminlte/dist/css/adminlte.min.css">
   <!-- overlayScrollbars -->
@@ -105,6 +107,8 @@
 <script src="<?php echo base_url() ?>assets/adminlte/plugins/summernote/summernote-bs4.min.js"></script>
 <!-- overlayScrollbars -->
 <script src="<?php echo base_url() ?>assets/adminlte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- Toastr -->
+<script src="<?php echo base_url() ?>assets/adminlte/plugins/toastr/toastr.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?php echo base_url() ?>assets/adminlte/dist/js/adminlte.js"></script>
 <!-- AdminLTE for demo purposes -->
